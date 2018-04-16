@@ -35,6 +35,8 @@ describe 'As a User' do
       visit book_path(@book)
 
       expect(page).to have_content("Highest Rating: #{@book.highest_rating}")
+      expect(page).to have_content("Highest Rated Review: #{@review_2.body}")
+      expect(page).to have_content("Highest Rating User: #{@review_2.user.name}")
     end
 
     scenario 'I can see the lowest rating for that book' do
@@ -42,6 +44,8 @@ describe 'As a User' do
       visit book_path(@book)
 
       expect(page).to have_content("Lowest Rating: #{@book.lowest_rating}")
+      expect(page).to have_content("Lowest Rated Review: #{@review_1.body}")
+      expect(page).to have_content("Lowest Rating User: #{@review_1.user.name}")
     end
   end
 end

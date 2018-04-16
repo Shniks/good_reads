@@ -10,6 +10,14 @@ class Book < ApplicationRecord
     reviews.maximum(:rating)
   end
 
+  def highest_review
+    reviews.find_by(rating: highest_rating)
+  end
+
+  def lowest_review
+    reviews.find_by(rating: lowest_rating)
+  end
+
   def lowest_rating
     reviews.minimum(:rating)
   end
