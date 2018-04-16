@@ -14,11 +14,12 @@ class Book < ApplicationRecord
     reviews.find_by(rating: highest_rating)
   end
 
+  def lowest_rating
+    reviews.minimum(:rating)
+  end
+  
   def lowest_review
     reviews.find_by(rating: lowest_rating)
   end
 
-  def lowest_rating
-    reviews.minimum(:rating)
-  end
 end
