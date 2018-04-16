@@ -36,5 +36,12 @@ describe 'As a User' do
 
       expect(page).to have_content("Highest Rating: #{@book.highest_rating}")
     end
+
+    scenario 'I can see the lowest rating for that book' do
+
+      visit book_path(@book)
+
+      expect(page).to have_content("Lowest Rating: #{@book.lowest_rating}")
+    end
   end
 end
