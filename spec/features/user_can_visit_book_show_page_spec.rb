@@ -29,5 +29,12 @@ describe 'As a User' do
 
       expect(page).to have_content(@book.average_rating)
     end
+
+    scenario 'I can see the highest rating for that book' do
+
+      visit book_path(@book)
+
+      expect(page).to have_content("Highest Rating: #{@book.highest_rating}")
+    end
   end
 end
